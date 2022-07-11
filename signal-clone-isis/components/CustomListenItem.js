@@ -2,9 +2,9 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { Avatar, ListItem } from 'react-native-elements'
 
-const CustomListenItem = () => {
+const CustomListenItem = ({id , chatName, enterChat}) => {
   return (
-   <ListItem>
+   <ListItem >
         <Avatar
         rounded
         source={{
@@ -16,8 +16,13 @@ const CustomListenItem = () => {
         <ListItem.Content>
             <ListItem.Title 
             style={{fontWeight: '800'}}>
-                Youtube Chat
+                Isis Zapata
             </ListItem.Title>
+            <ListItem.Subtitle
+            numberOfLines={1}
+            ellipsizeMode="tail">
+            Full Stack Developer
+            </ListItem.Subtitle>
          </ListItem.Content>   
     </ListItem>
   )

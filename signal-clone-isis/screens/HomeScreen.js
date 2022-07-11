@@ -1,13 +1,28 @@
 import { StyleSheet , View, Text, KeyboardAvoidingView , SafeAreaView, ScrollView} from 'react-native'
-import React, {useEffect, useState} from 'react'
-import {Button, Input , Image} from 'react-native-elements'
+import React, {useEffect, useLayoutEffect, useState} from 'react'
+import {Button, Input , Image, Avatar} from 'react-native-elements'
 import { StatusBar } from 'expo-status-bar';
 import { auth } from '../firebase';
 import CustomListenItem from '../components/CustomListenItem';
 
 
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: "Signal",
+      headerStyle: "backgroundColor: '#ffffff'",
+      headerTitleStyle: {color: "black"},
+      headerTintColor: "black",
+      headerLeft: () => (
+        <View style={{marginLeft: 20}}>
+          <Avatar rounded source={{uri: auth?.currentUser?.photoURL}} />
+        </View>
+      ),
+    });
+  }, []);
+
   return (
     <SafeAreaView> 
         <ScrollView>
@@ -24,9 +39,6 @@ export default HomeScreen
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
         padding: 10,
       },
     inputContainer: {
