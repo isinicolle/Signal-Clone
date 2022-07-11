@@ -10,8 +10,10 @@ const AddChat = ({navigation}) => {
     
     useLayoutEffect(() => {
         navigation.setOptions({
-            title: "Add a new Chat",
-            headerBackTitle: "Chats",
+            title: "Add a New Chat",
+            headerStyle:{backgroundColor:"#2C6BED"},
+            headerTintColor: "white",
+            headerBackTitle:"Chats",
 
         })
     }, [navigation])
@@ -50,6 +52,6 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: "white",
         padding: 30,
-        height: 100,
+        height: "100%",
     }
 })
