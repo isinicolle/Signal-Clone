@@ -1,27 +1,37 @@
-import { StyleSheet , View, Text, KeyboardAvoidingView } from 'react-native'
-import React from 'react'
-import {Button, Input , Image} from 'react-native-elements'
+import { StyleSheet , View,KeyboardAvoidingView } from 'react-native'
+import React, { useLayoutEffect , useState } from 'react'
+import {Button, Input , Text} from 'react-native-elements'
 import { StatusBar } from 'expo-status-bar';
 
 
 const RegisterScreen = ({navigation}) => {
-    
     const [name, setName] = React.useState("")
     const [email, setEmail] = React.useState("")
     const [password, setPassword] = React.useState("")
     const [imageUrl, setImageUrl] = React.useState("")
     
+    useLayoutEffect(() => {
+     
+        navigation.setOptions({
+           headerBackTitle: "Back to Login",
+        });
+    
+    }, [navigation])
+
+
     const register = () => {};
 
   return (
     <KeyboardAvoidingView
     behavior="padding"
     style={styles.container}>
+    <StatusBar style='Light' />
+
       <Text h3 style={{ marginBottom: 50}}>
       Create a Signal account
         </Text>
 
-        <View style={styles.container}>
+        <View style={styles.inputContainer}>
             <Input
                 placeholder="Full Name"
                 autoFocus
@@ -69,7 +79,7 @@ const RegisterScreen = ({navigation}) => {
   )
 }
 
-export default RegisterScreen
+export default RegisterScreen;
 
 
 const styles = StyleSheet.create({
