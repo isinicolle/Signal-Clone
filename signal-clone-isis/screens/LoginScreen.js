@@ -3,7 +3,8 @@ import React from 'react'
 import {Button, Input , Image} from 'react-native-elements'
 import { StatusBar } from 'expo-status-bar';
 
-const LoginScreen = () => {
+
+const LoginScreen = ({navigation}) => {
 
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
@@ -45,6 +46,7 @@ const LoginScreen = () => {
          title="Login" />
 
         <Button
+        onPress={() => navigation.navigate("Register")}
          containerStyle={styles.button} 
          type="outline"
          title="Register" />
