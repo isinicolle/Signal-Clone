@@ -1,4 +1,4 @@
-import { StyleSheet , View, Text, KeyboardAvoidingView , SafeAreaView, ScrollView} from 'react-native'
+import { StyleSheet , View, Text, KeyboardAvoidingView , SafeAreaView, ScrollView, Touchable, TouchableOpacity} from 'react-native'
 import React, {useEffect, useLayoutEffect, useState} from 'react'
 import {Button, Input , Image, Avatar} from 'react-native-elements'
 import { StatusBar } from 'expo-status-bar';
@@ -9,6 +9,13 @@ import CustomListenItem from '../components/CustomListenItem';
 
 const HomeScreen = ({navigation}) => {
 
+  const signOutUser = () => {
+    Auth.signOut()
+      .then(() => {
+        navigation.replace("Login");
+      });
+  };
+
   useLayoutEffect(() => {
     navigation.setOptions({
       title: "Signal",
@@ -17,7 +24,11 @@ const HomeScreen = ({navigation}) => {
       headerTintColor: "black",
       headerLeft: () => (
         <View style={{marginLeft: 20}}>
+            <TouchableOpacity 
+            onPress={signOutUser}
+            activeOpacity={0.5}>
           <Avatar rounded source={{uri: auth?.currentUser?.photoURL}} />
+          </TouchableOpacity>
         </View>
       ),
     });

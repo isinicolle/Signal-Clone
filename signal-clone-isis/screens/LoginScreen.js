@@ -13,14 +13,17 @@ const LoginScreen = ({navigation}) => {
     useEffect(() => {
       const unsuscribe = auth.onAuthStateChanged((authUser) => {
         if(authUser) {
-          navigation.replace('Home');
+          navigation.replace("Home");
         }
       })
 
       return unsuscribe;
     }, [])
 
-    const signIn = () => {};
+    const signIn = () => {
+      auth.signInWithCredential(email, password)
+      .catch((error) => alert(error));
+    };
 
   return (
     <KeyboardAvoidingView 
@@ -47,6 +50,7 @@ const LoginScreen = ({navigation}) => {
          type="Password"
          value={password}
          onChangeText={(text) => setPassword(text)}
+         onSubmitEditing={signIn}
          />
          
       </View>
