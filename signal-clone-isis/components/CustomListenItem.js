@@ -1,8 +1,25 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { Avatar, ListItem } from 'react-native-elements'
+import React, { useEffect, useState } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import { ListItem, Avatar } from 'react-native-elements'
+import { db } from '../firebase'
 
 const CustomListenItem = ({id , chatName, enterChat}) => {
+
+  const [chatMessages, setChatMessages] = useState([])
+
+  useEffect(() => {
+      const unsubscribe = db
+      .collection('chats')
+      .doc(id)
+      .collection('messages')
+      .orderBy('timestamp', 'desc')
+      .onSnapshot((snapshot) => 
+          setChatMessages(snapshot.docs.map((doc) => doc.data()))
+      )
+      return unsubscribe;
+  },[])
+
+
   return (
    <ListItem >
         <Avatar
@@ -13,19 +30,18 @@ const CustomListenItem = ({id , chatName, enterChat}) => {
             "https://connectingcouples.us/wp-content/uploads/2019/07/avatar-placeholder.png",
         }}
         />
-        <ListItem.Content>
-            <ListItem.Title 
-            style={{fontWeight: '800'}}>
-                Isis Zapata
-            </ListItem.Title>
-            <ListItem.Subtitle
-            numberOfLines={1}
-            ellipsizeMode="tail">
-            Full Stack Developer
-            </ListItem.Subtitle>
-         </ListItem.Content>   
-    </ListItem>
+      <ListItem.Content>
+                <ListItem.Title style={{ fontWeight: "800"}}>
+                   {chatName}
+                </ListItem.Title>
+                <ListItem.Subtitle numberOfLines={1} ellipsizeMode="tail">
+                    {chatMessages?.[0]?.displayName} : {chatMessages?.[0]?.message}
+                </ListItem.Subtitle>
+            </ListItem.Content>
+        </ListItem>
   )
 }
 
 export default CustomListenItem
+
+const styles = StyleSheet.create({})

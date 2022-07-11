@@ -4,7 +4,6 @@ import {Button, Input , Text} from 'react-native-elements'
 import { StatusBar } from 'expo-status-bar';
 import {auth} from '../firebase'
 
-
 const RegisterScreen = ({navigation}) => {
     const [name, setName] = React.useState("")
     const [email, setEmail] = React.useState("")
@@ -14,6 +13,7 @@ const RegisterScreen = ({navigation}) => {
     useLayoutEffect(() => {
      
         navigation.setOptions({
+          headerTitleAlign: 'center',
            headerBackTitle: "Back to Login",
         });
     
@@ -36,7 +36,7 @@ const RegisterScreen = ({navigation}) => {
     <KeyboardAvoidingView
     behavior="padding"
     style={styles.container}>
-    <StatusBar style='Light' />
+    <StatusBar style="Light" />
 
       <Text h3 style={{ marginBottom: 50}}>
       Create a Signal account
@@ -85,7 +85,7 @@ const RegisterScreen = ({navigation}) => {
         onPress={register} 
         title="Register"
         />
-
+  <View style={{ height: 100}} />
     </KeyboardAvoidingView>
   )
 }
@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         padding: 10,
+        
       },
     inputContainer: {
         width: 300,
