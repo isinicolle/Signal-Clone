@@ -4,7 +4,7 @@ import {Button, Input , Image, Avatar} from 'react-native-elements'
 import { StatusBar } from 'expo-status-bar';
 import { auth } from '../firebase';
 import CustomListenItem from '../components/CustomListenItem';
-
+import {AntDesign, SimpleLineIcons} from '@expo/vector-icons';
 
 
 const HomeScreen = ({navigation}) => {
@@ -31,6 +31,15 @@ const HomeScreen = ({navigation}) => {
           </TouchableOpacity>
         </View>
       ),
+      headerRight: () => {
+        <View style={{
+
+        }}
+        />
+
+        
+      }
+
     });
   }, []);
 
