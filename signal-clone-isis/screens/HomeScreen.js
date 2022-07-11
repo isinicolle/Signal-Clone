@@ -23,7 +23,7 @@ const HomeScreen = ({navigation}) => {
       title: "Signal",
       headerStyle: "backgroundColor: '#ffffff'",
       headerTitleStyle: {color: "black"},
-      headerTintColor: "black",
+      headerTintColor: "white",
       headerLeft: () => (
         <View style={{marginLeft: 20}}>
             <TouchableOpacity 
