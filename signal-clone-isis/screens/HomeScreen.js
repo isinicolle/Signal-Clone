@@ -8,7 +8,9 @@ import {AntDesign, SimpleLineIcons} from '@expo/vector-icons';
 
 
 const HomeScreen = ({navigation}) => {
+  const [chats, setChats] = useState([])
 
+  
   const signOutUser = () => {
     Auth.signOut()
       .then(() => {
@@ -27,7 +29,9 @@ const HomeScreen = ({navigation}) => {
             <TouchableOpacity 
             onPress={signOutUser}
             activeOpacity={0.5}>
-          <Avatar rounded source={{uri: auth?.currentUser?.photoURL}} />
+          <Avatar 
+          rounded 
+          source={{uri: auth?.currentUser?.photoURL}} />
           </TouchableOpacity>
         </View>
       ),
@@ -54,6 +58,15 @@ const HomeScreen = ({navigation}) => {
   }, [navigation]);
 
   return (
+    /**
+     * <SafeAreaView>
+            <ScrollView style={styles.container}>
+                {chats.map(({ id, data: {chatName} }) => (
+                    <CustomListItem key={id} id={id} chatName={chatName} enterChat={enterChat}/>
+                ))}     
+            </ScrollView>
+        </SafeAreaView>
+     */
     <SafeAreaView> 
         <ScrollView>
         <View style={styles.container}>
