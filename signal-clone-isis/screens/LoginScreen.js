@@ -9,14 +9,16 @@ const LoginScreen = ({navigation}) => {
 
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
-/*
+
     useEffect(() => {
-      auth.onAuthStateChanged((authUser) => {
+      const unsuscribe = auth.onAuthStateChanged((authUser) => {
         if(authUser) {
-          navigation.navigate('Home');
+          navigation.replace('Home');
         }
       })
-    }, [])*/
+
+      return unsuscribe;
+    }, [])
 
     const signIn = () => {};
 
