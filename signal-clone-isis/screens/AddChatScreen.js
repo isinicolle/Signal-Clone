@@ -6,7 +6,8 @@ import { db } from '../firebase'
 
 const AddChat = ({navigation}) => {
 
-    const [input, setInput] = useState("")
+    const [input, setInput] = React.useState("")
+    
     useLayoutEffect(() => {
         navigation.setOptions({
             title: "Add a new Chat",
