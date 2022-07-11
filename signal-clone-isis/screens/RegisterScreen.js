@@ -2,6 +2,7 @@ import { StyleSheet , View,KeyboardAvoidingView } from 'react-native'
 import React, { useLayoutEffect , useState } from 'react'
 import {Button, Input , Text} from 'react-native-elements'
 import { StatusBar } from 'expo-status-bar';
+import {auth} from '../firebase'
 
 
 const RegisterScreen = ({navigation}) => {
@@ -19,7 +20,17 @@ const RegisterScreen = ({navigation}) => {
     }, [navigation])
 
 
-    const register = () => {};
+    const register = () => {
+      auth.createUserWithEmailAndPassword(email, password)
+      .then((authUser) => {
+        authUser.user.update({
+          displayName: name,
+          photoURL: imageUrl ||
+          "https://cencup.com/wp-content/uploads/2019/07/default-user-image.png"
+        });
+      
+      }).catch((error) => alert(error.message));
+    };
 
   return (
     <KeyboardAvoidingView
