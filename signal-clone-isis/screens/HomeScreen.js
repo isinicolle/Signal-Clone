@@ -11,7 +11,7 @@ const HomeScreen = ({ navigation }) => {
 		auth.signOut().then(() => navigation.replace("Login"));
 	};
 
-	const [chats, setChats] = React.useState([]);
+	const [chats, setChats] = useState([]);
 
 	useEffect(() => {
 		const unsubscribe = db.collection("chats").onSnapshot((snapshot) =>
@@ -66,25 +66,20 @@ const HomeScreen = ({ navigation }) => {
 	};
 
 	return (
-		<SafeAreaView>
-			<ScrollView style={styles.container}>
-				{chats.map(({ id, data: { chatName } }) => (
-					<CustomListItem
-						key={id}
-						id={id}
-						chatName={chatName}
-						enterChat={enterChat}
-					/>
-				))}
-			</ScrollView>
-		</SafeAreaView>
+    <SafeAreaView>
+    <ScrollView style={styles.container}>
+        {chats.map(({ id, data: {chatName} }) => (
+            <CustomListItem key={id} id={id} chatName={chatName} enterChat={enterChat}/>
+        ))}     
+    </ScrollView>
+</SafeAreaView>
 	);
 };
 
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-	container: {
-		height: "100%",
-	},
-});
+    container: {
+        height: '100%'
+    }
+})
