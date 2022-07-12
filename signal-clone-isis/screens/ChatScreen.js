@@ -49,8 +49,13 @@ const ChatScreen = ({ navigation, route }) => {
                 </View>
             ),
             headerLeft: () => (
-                <TouchableOpacity style={{marginLeft: 10}} onPress={navigation.goBack}>
-                     <AntDesign name="arrowleft" size={24} color="white" />
+                <TouchableOpacity 
+                style={{marginLeft: 10}} 
+                onPress={navigation.goBack}>
+                     <AntDesign 
+                     name="arrowleft" 
+                     size={24} 
+                     color="white" />
                 </TouchableOpacity>
             ),
             headerRight: () => (
@@ -61,10 +66,16 @@ const ChatScreen = ({ navigation, route }) => {
                     marginRight: 20,
                 }}>
                     <TouchableOpacity>
-                        <FontAwesome name="video-camera" size={24} color="white" />
+                        <FontAwesome 
+                        name="video-camera" 
+                        size={24} 
+                        color="white" />
                     </TouchableOpacity>
                     <TouchableOpacity>
-                        <Ionicons name="call" size={24} color="white" />
+                        <Ionicons 
+                        name="call" 
+                        size={24} 
+                        color="white" />
                     </TouchableOpacity>
                 </View>
             )
@@ -90,7 +101,8 @@ const ChatScreen = ({ navigation, route }) => {
                 style={styles.container}
                 keyboardVerticalOffset={90}
             >
-                <TouchableWithoutFeedback onPress={Keyboard.dismiis}>
+                <TouchableWithoutFeedback 
+                onPress={Keyboard.dismiis}>
                     <>
                         <ScrollView contentContainerStyle={{paddingTop: 15}}>
                             {messages.map(({id, data}) => (
