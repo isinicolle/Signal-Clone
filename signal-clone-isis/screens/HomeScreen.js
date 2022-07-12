@@ -1,4 +1,4 @@
-import { StyleSheet , View, Text, KeyboardAvoidingView , SafeAreaView, ScrollView, TouchableOpacity,CustomListItem } from 'react-native'
+import { StyleSheet , View, Text, KeyboardAvoidingView , SafeAreaView, ScrollView, TouchableOpacity } from 'react-native'
 import React, {useEffect, useLayoutEffect, useState} from 'react'
 import {Button, Input , Image, Avatar} from 'react-native-elements'
 import { StatusBar } from 'expo-status-bar';
