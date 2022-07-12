@@ -8,8 +8,9 @@ import { auth, db } from '../firebase'
 
 const ChatScreen = ({ navigation, route }) => {
 
-    const [input, setInput] = useState("")
-    const [messages, setMessages] = useState([])
+    const [input, setInput] = React.useState("")
+    const [messages, setMessages] = React.useState([])
+
     useLayoutEffect(() => {
         const unsubscribe = db
         .collection('chats')
@@ -37,8 +38,14 @@ const ChatScreen = ({ navigation, route }) => {
                         alignItems: "center",
                     }} 
                 >
-                    <Avatar rounded source={{ uri: messages[0]?.data.photoURL || "https://cencup.com/wp-content/uploads/2019/07/avatar-placeholder.png" }} />
-                    <Text style={{color: "white", marginLeft: 10, fontWeight: "700"}}>{route.params.chatName}</Text>
+                    <Avatar rounded 
+                    source={{ uri: messages[0]?.data.photoURL || 
+                    "https://connectingcouples.us/wp-content/uploads/2019/07/avatar-placeholder.png" }} />
+                    <Text style={{color: "white",
+                     marginLeft: 10, 
+                     fontWeight: "700"}}>
+                        {route.params.chatName}
+                        </Text>
                 </View>
             ),
             headerLeft: () => (
