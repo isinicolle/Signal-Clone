@@ -47,7 +47,7 @@ const AddChat = ({navigation}) => {
     )
 }
 
-export default AddChat
+export default AddChatScreen;
 
 const styles = StyleSheet.create({
     container: {
