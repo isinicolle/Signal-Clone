@@ -21,7 +21,10 @@ const CustomListenItem = ({id , chatName, enterChat}) => {
 
 
   return (
-   <ListItem onPress={() => enterChat(id, chatName )} key={id} buttonDivider>
+   <ListItem onPress={() => 
+   enterChat(id, chatName )} 
+   key={id} 
+   bottomDivider>
         <Avatar
         rounded
         source={{

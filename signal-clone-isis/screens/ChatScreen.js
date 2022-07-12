@@ -1,19 +1,10 @@
 import React, { useLayoutEffect, useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
 import { Avatar } from 'react-native-elements'
-import { TouchableOpacity } from 'react-native'
 import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons'
-import { SafeAreaView } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
-import { KeyboardAvoidingView } from 'react-native'
-import { Platform } from 'react-native'
-import { ScrollView } from 'react-native'
-import { TextInput } from 'react-native'
-import { Keyboard } from 'react-native'
-import { TouchableWithoutFeedback } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity , SafeAreaView , TextInput,Keyboard,TouchableWithoutFeedback,ScrollView ,Platform , KeyboardAvoidingView } from 'react-native'
 import firebase from 'firebase/compat/app';
 import { auth, db } from '../firebase'
-
 
 const ChatScreen = ({ navigation, route }) => {
 

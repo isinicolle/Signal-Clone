@@ -23,8 +23,9 @@ const AddChat = ({navigation}) => {
             chatName: input
         }).then(() => {
             navigation.goBack()
-        }).catch((error) => alert(error.message) )
-    }
+        }).catch((error) => alert(error) );
+    };
+    
     return (
         <View style={styles.container}>
             <Input 
