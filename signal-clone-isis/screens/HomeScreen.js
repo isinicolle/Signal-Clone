@@ -8,20 +8,8 @@ import {AntDesign, SimpleLineIcons} from '@expo/vector-icons';
 
 
 const HomeScreen = ({navigation}) => {
-  const [chats, setChats] = useState([])
 
-  useEffect(() => {
-    const unsubscribe =
-     db.collection('chats').onSnapshot(snapshot =>
-        setChats(
-            snapshot.docs.map(doc => ({
-                id: doc.id,
-                data: doc.data(),
-            })))}
-    )
-    return unsubscribe;
-}, [])
-
+  const [chats, setChats] = React.useState([]);
   
   const signOutUser = () => {
     Auth.signOut()
@@ -29,6 +17,19 @@ const HomeScreen = ({navigation}) => {
         navigation.replace("Login");
       });
   };
+
+  useEffect(() => {
+    const unsubscribe =
+     db.collection('chats').onSnapshot((snapshot) =>
+      setChats(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        })))
+        );
+    return  unsubscribe;
+}, []);
+
 
   useLayoutEffect(() => {
     navigation.setOptions({
