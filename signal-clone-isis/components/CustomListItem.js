@@ -24,7 +24,7 @@ const CustomListItem = ({id, chatName, enterChat}) => {
             <Avatar 
                 rounded
                 source={{
-                    uri: chatMessages?.[0]?.photoURL || "https://cencup.com/wp-content/uploads/2019/07/avatar-placeholder.png"
+                    uri: chatMessages?.[0]?.photoURL || "https://connectingcouples.us/wp-content/uploads/2019/07/avatar-placeholder.png"
                 }}
             />
             <ListItem.Content>

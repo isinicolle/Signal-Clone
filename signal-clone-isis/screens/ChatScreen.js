@@ -46,7 +46,7 @@ const ChatScreen = ({ navigation, route }) => {
                         alignItems: "center",
                     }} 
                 >
-                    <Avatar rounded source={{ uri: messages[0]?.data.photoURL || "https://cencup.com/wp-content/uploads/2019/07/avatar-placeholder.png" }} />
+                    <Avatar rounded source={{ uri: messages[0]?.data.photoURL || "https://connectingcouples.us/wp-content/uploads/2019/07/avatar-placeholder.png" }} />
                     <Text style={{color: "white", marginLeft: 10, fontWeight: "700"}}>{route.params.chatName}</Text>
                 </View>
             ),
