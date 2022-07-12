@@ -11,21 +11,7 @@ const ChatScreen = ({ navigation, route }) => {
     const [input, setInput] = React.useState("")
     const [messages, setMessages] = React.useState([])
 
-    useLayoutEffect(() => {
-        const unsubscribe = db
-        .collection('chats')
-        .doc(route.params.id).
-        collection('messages')
-        .orderBy('timestamp', 'asc')
-        .onSnapshot(snapshot => setMessages(
-            snapshot.docs.map(doc => ({
-                id: doc.id,
-                data: doc.data()
-            }))
-        ))
-        return unsubscribe;
-    }, [route])
-
+    
     useLayoutEffect(() => {
         navigation.setOptions({
             title: "Chat",
@@ -33,14 +19,14 @@ const ChatScreen = ({ navigation, route }) => {
             headerTitleAlign: "left",
             headerTitle: () => (
                 <View
-                    style={{
+                style={{
                         flexDirection: "row",
                         alignItems: "center",
                     }} 
                 >
                     <Avatar rounded 
                     source={{ uri: messages[0]?.data.photoURL || 
-                    "https://connectingcouples.us/wp-content/uploads/2019/07/avatar-placeholder.png" }} />
+                        "https://connectingcouples.us/wp-content/uploads/2019/07/avatar-placeholder.png" }} />
                     <Text style={{color: "white",
                      marginLeft: 10, 
                      fontWeight: "700"}}>
@@ -81,7 +67,7 @@ const ChatScreen = ({ navigation, route }) => {
             )
         })
     },[navigation, messages])
-
+    
     const sendMessage = () => {
         Keyboard.dismiss();
         db.collection('chats').doc(route.params.id).collection('messages').add({
@@ -91,8 +77,23 @@ const ChatScreen = ({ navigation, route }) => {
             email: auth.currentUser.email,
             photoURL: auth.currentUser.photoURL
         })
-        setInput("")
-    }
+        setInput("")}
+        
+    useLayoutEffect(() => {
+        const unsubscribe = db
+        .collection('chats')
+        .doc(route.params.id).
+        collection('messages')
+        .orderBy('timestamp', 'asc')
+        .onSnapshot(snapshot => setMessages(
+            snapshot.docs.map(doc => ({
+                id: doc.id,
+                data: doc.data()
+            }))
+        ))
+        return unsubscribe;
+    }, [route])
+
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: "white"}}>
             <StatusBar style="light" />
