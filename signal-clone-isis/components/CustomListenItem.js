@@ -46,6 +46,6 @@ const CustomListenItem = ({id , chatName, enterChat}) => {
   )
 }
 
-export default CustomListenItem
+export default CustomListenItem;
 
 const styles = StyleSheet.create({})
