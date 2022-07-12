@@ -21,7 +21,8 @@ const CustomListenItem = ({id , chatName, enterChat}) => {
 
 
   return (
-   <ListItem onPress={() => 
+   <ListItem 
+   onPress={() => 
    enterChat(id, chatName )} 
    key={id} 
    bottomDivider>
@@ -29,7 +30,7 @@ const CustomListenItem = ({id , chatName, enterChat}) => {
         rounded
         source={{
             uri: 
-           // chatMessages?.[0].photoURL || 
+            chatMessages?.[0].photoURL || 
             "https://connectingcouples.us/wp-content/uploads/2019/07/avatar-placeholder.png",
         }}
         />
