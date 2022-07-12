@@ -10,6 +10,18 @@ import {AntDesign, SimpleLineIcons} from '@expo/vector-icons';
 const HomeScreen = ({navigation}) => {
   const [chats, setChats] = useState([])
 
+  useEffect(() => {
+    const unsubscribe =
+     db.collection('chats').onSnapshot(snapshot =>
+        setChats(
+            snapshot.docs.map(doc => ({
+                id: doc.id,
+                data: doc.data(),
+            })))}
+    )
+    return unsubscribe;
+}, [])
+
   
   const signOutUser = () => {
     Auth.signOut()
@@ -23,7 +35,7 @@ const HomeScreen = ({navigation}) => {
       title: "Signal",
       headerStyle: "backgroundColor: '#ffffff'",
       headerTitleStyle: {color: "black"},
-      headerTintColor: "white",
+      headerTintColor: "black",
       headerLeft: () => (
         <View style={{marginLeft: 20}}>
             <TouchableOpacity 
