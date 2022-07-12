@@ -1,4 +1,4 @@
-import { StyleSheet , View, Text, KeyboardAvoidingView , SafeAreaView, ScrollView, Touchable, TouchableOpacity} from 'react-native'
+import { StyleSheet , View, Text, KeyboardAvoidingView , SafeAreaView, ScrollView, TouchableOpacity,CustomListItem } from 'react-native'
 import React, {useEffect, useLayoutEffect, useState} from 'react'
 import {Button, Input , Image, Avatar} from 'react-native-elements'
 import { StatusBar } from 'expo-status-bar';
@@ -71,22 +71,13 @@ const HomeScreen = ({navigation}) => {
   }, [navigation]);
 
   return (
-    /**
-     * <SafeAreaView>
-            <ScrollView style={styles.container}>
-                {chats.map(({ id, data: {chatName} }) => (
-                    <CustomListItem key={id} id={id} chatName={chatName} enterChat={enterChat}/>
-                ))}     
-            </ScrollView>
-        </SafeAreaView>
-     */
-    <SafeAreaView> 
-        <ScrollView>
-        <View style={styles.container}>
-           <CustomListenItem />
-        </View>
-        </ScrollView>
-    </SafeAreaView>
+    <SafeAreaView>
+    <ScrollView style={styles.container}>
+        {chats.map(({ id, data: {chatName} }) => (
+            <CustomListItem key={id} id={id} chatName={chatName} enterChat={enterChat}/>
+        ))}     
+    </ScrollView>
+</SafeAreaView>
   )
 }
 
