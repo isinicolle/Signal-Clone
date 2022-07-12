@@ -28,6 +28,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Clone Signal for Isis Zapata. Siguiendo el Tutorial de Sonny.",
+    "githubUrl": "https://github.com/isinicolle/Signal-Clone"
   }
 }
