@@ -24,7 +24,7 @@ const ChatScreen = ({ navigation, route }) => {
             }))
         ))
         return unsubscribe;
-    }, [])
+    }, [route])
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -102,7 +102,7 @@ const ChatScreen = ({ navigation, route }) => {
                 keyboardVerticalOffset={90}
             >
                 <TouchableWithoutFeedback 
-                onPress={Keyboard.dismiis}>
+                onPress={Keyboard.dismiss}>
                     <>
                         <ScrollView contentContainerStyle={{paddingTop: 15}}>
                             {messages.map(({id, data}) => (
