@@ -19,7 +19,7 @@ REACT NATIVE (Navigation, Expo &amp; Firebase). Aplicacion movil clonando a sign
 <div align="center" >
 <img src="https://github.com/isinicolle/Signal-Clone/blob/main/signal-clone-isis/assets/icon.png" height="250px">
 
-<img src="https://github.com/isinicolle/isinicolle.github.io/blob/main/assets/img/Proyectos/proyecto-todoreactnative.png" height="250px" alt="Imagen del proyecto">
+<img src="https://github.com/isinicolle/isinicolle.github.io/blob/main/assets/img/Proyectos/proyectos-signalclone.png" height="250px" alt="Imagen del proyecto">
 
 </div>
 
