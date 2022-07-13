@@ -1,10 +1,10 @@
-# Signal-Clone
-REACT NATIVE (Navigation, Expo &amp; Firebase). Aplicacion movil clonando a signal Elaborado por Isis Zapata
+
+
 ---------------------
 
 <div align="center" >
 
-## APLICACION DE TAREAS (TO - DO)
+## Signal Clone
 
 
 <img src="https://www.datocms-assets.com/45470/1631026680-logo-react-native.png" height="250px">
@@ -23,4 +23,4 @@ REACT NATIVE (Navigation, Expo &amp; Firebase). Aplicacion movil clonando a sign
 
 </div>
 
-
+REACT NATIVE (Navigation, Expo &amp; Firebase). 
